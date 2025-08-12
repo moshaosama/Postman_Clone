@@ -7,15 +7,20 @@ Includes **automated & manual testing** to ensure high reliability and performan
 
 ## 📸 Preview
 
-> **Original Postman UI for inspiration**
 <p align="center">
-  <img src="https://www.postman.com/_gatsby/image/…/postman-screenshot.png" alt="Postman Screenshot" width="600"/>
+  <img src="docs/images/postman-workspace.png" alt="Postman Workspace" width="600"/>
 </p>
 
-> **Our Clone in action** *(replace with your project screenshots)*  
 <p align="center">
-  <img src="public/screenshots/home.png" alt="Home Page" width="600"/>
-  <img src="public/screenshots/request-builder.png" alt="Request Builder" width="600"/>
+  <img src="docs/images/postman-sidebar.png" alt="Postman Sidebar" width="600"/>
+</p>
+
+<p align="center">
+  <img src="docs/images/postman-console.png" alt="Postman Console" width="600"/>
+</p>
+
+<p align="center">
+  <img src="docs/images/postman-overview.png" alt="Postman Overview" width="600"/>
 </p>
 
 ---
