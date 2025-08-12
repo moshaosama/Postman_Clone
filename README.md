@@ -8,19 +8,11 @@ Includes **automated & manual testing** to ensure high reliability and performan
 ## 📸 Preview
 
 <p align="center">
-  <img src="docs/images/postman-workspace.png" alt="Postman Workspace" width="600"/>
+  <img src="https://blog.postman.com/wp-content/uploads/2021/01/7-postman-v8.gif" alt="Postman Workspace" width="600"/>
 </p>
 
 <p align="center">
-  <img src="docs/images/postman-sidebar.png" alt="Postman Sidebar" width="600"/>
-</p>
-
-<p align="center">
-  <img src="docs/images/postman-console.png" alt="Postman Console" width="600"/>
-</p>
-
-<p align="center">
-  <img src="docs/images/postman-overview.png" alt="Postman Overview" width="600"/>
+  <img src="https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/WS-statusbar-helpFeedbackMenu.png" alt="Postman Sidebar" width="600"/>
 </p>
 
 ---
