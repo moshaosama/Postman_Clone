@@ -1,8 +1,10 @@
+import { HeaderTabs } from "../../features/Tabs/components/HeaderTabs";
+
 const Home = () => {
   return (
     <>
-      <div>
-        <h1>Header</h1>
+      <div className="w-full">
+        <HeaderTabs />
       </div>
     </>
   );
