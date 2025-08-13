@@ -1,9 +1,9 @@
-import Navbar from "./layouts/Navbar";
+import Router from "./router/Router";
 
 const App = () => {
   return (
     <>
-      <Navbar />
+      <Router />
     </>
   );
 };
