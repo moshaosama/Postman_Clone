@@ -1,13 +1,18 @@
+import { useOpenSliderContext } from "../../context/OpenSliderContext";
 import { Button } from "../../components/ui/button";
 import { Search, Settings, Text } from "lucide-react";
 const Navbar = () => {
+  const { handleTriggerOpenSlider } = useOpenSliderContext();
   return (
     <>
-      <div className="p-2 flex justify-between items-center">
+      <div className="p-2 flex justify-between items-center bg-[#eeeeee] border-b-[0.5px] border-[#c5c5c5]">
         <div className="flex items-center gap-5">
           {/* // Parent */}
-          <div>
-            <Text size={20} />
+          <div onClick={handleTriggerOpenSlider}>
+            <Text
+              size={30}
+              className="hover:bg-[#e7e7e7] p-1 rounded-sm cursor-pointer"
+            />
           </div>
           <div className="flex items-center gap-3">
             <img
@@ -39,7 +44,7 @@ const Navbar = () => {
           <Settings
             size={30}
             color="#8f8f8f"
-            className="hover:bg-[#c7c7c7] p-1 rounded-sm"
+            className="hover:bg-[#e9e9e9] p-1 rounded-sm cursor-pointer"
           />
 
           <div className="flex gap-5">
