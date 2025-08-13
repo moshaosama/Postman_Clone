@@ -1,3 +1,4 @@
+import { Button } from "../../components/ui/button";
 import { Search, Settings, Text } from "lucide-react";
 const Navbar = () => {
   return (
@@ -34,8 +35,19 @@ const Navbar = () => {
 
         {/* //////////////////////////// */}
 
-        <div>
-          <Settings size={20} color="#8f8f8f" />
+        <div className="flex items-center gap-3">
+          <Settings
+            size={30}
+            color="#8f8f8f"
+            className="hover:bg-[#c7c7c7] p-1 rounded-sm"
+          />
+
+          <div className="flex gap-5">
+            <Button variant={"outline"}>Sign in</Button>
+            <Button variant={"destructive"} className="bg-orange-500">
+              Create Account
+            </Button>
+          </div>
         </div>
       </div>
     </>
