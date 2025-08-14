@@ -1,8 +1,7 @@
-import useSendRequest from "../Hooks/useSendRequest";
-import RenderData from "./RenderData";
+import { useGetDataContext } from "../../../context/GetDataContext";
 
 const FormSend = () => {
-  const { handleSendrequest, register, handleSubmit } = useSendRequest();
+  const { handleSendrequest, register, handleSubmit } = useGetDataContext();
 
   return (
     <>
@@ -46,7 +45,6 @@ const FormSend = () => {
           </button>
         </p>
       </form>
-      <RenderData />
     </>
   );
 };
