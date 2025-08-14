@@ -4,7 +4,7 @@ import DefaultTabs from "./DefaultTabs";
 export const HeaderTabs = () => {
   return (
     <>
-      <div className="flex items-center  border-b-2 p-2 border-b-[#ececec]">
+      <div className="flex items-center  border-b-2 p-2 border-b-[#ececec] ">
         <DefaultTabs />
         <div>
           <Plus
