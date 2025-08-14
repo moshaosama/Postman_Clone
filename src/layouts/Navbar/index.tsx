@@ -48,8 +48,13 @@ const Navbar = () => {
           />
 
           <div className="flex gap-5">
-            <Button variant={"outline"}>Sign in</Button>
-            <Button variant={"destructive"} className="bg-orange-500">
+            <Button variant={"outline"} className="cursor-pointer">
+              Sign in
+            </Button>
+            <Button
+              variant={"destructive"}
+              className="bg-orange-500 hover:bg-orange-800 transition-all duration-500 cursor-pointer"
+            >
               Create Account
             </Button>
           </div>
