@@ -4,9 +4,12 @@ import { useForm } from "react-hook-form";
 
 interface GetDataContextData {
   Data: boolean;
+  Status: string;
   register: any;
   handleSubmit: any;
   handleSendrequest: (data: any) => void;
+  code: any;
+  setCode: any;
 }
 
 interface OpenSliderProps {
@@ -16,15 +19,33 @@ interface OpenSliderProps {
 const GetDataContext = createContext<GetDataContextData | null>(null);
 
 const GetDataProvider = ({ children }: OpenSliderProps) => {
-  const [Data, setData] = useState<any>();
+  const [Data, setData] = useState<{
+    data: any;
+    statusbar: any;
+  }>();
+  const [code, setCode] = useState("");
   const { register, handleSubmit } = useForm();
   const handleSendrequest = async (data: any) => {
-    const result = await sendRequestService.getData(data.url as string);
+    const result = await sendRequestService.getData({
+      ...data,
+      body: JSON.parse(code || "{}"),
+    });
+
     setData(result);
   };
 
   return (
-    <GetDataContext value={{ Data, register, handleSubmit, handleSendrequest }}>
+    <GetDataContext
+      value={{
+        Data: Data?.data,
+        Status: Data?.statusbar as string,
+        register,
+        handleSubmit,
+        handleSendrequest,
+        code,
+        setCode,
+      }}
+    >
       {children}
     </GetDataContext>
   );
