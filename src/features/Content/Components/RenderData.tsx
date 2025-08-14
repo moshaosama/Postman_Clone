@@ -1,11 +1,19 @@
+import { useOpenSliderContext } from "../../../context/OpenSliderContext";
 import { useGetDataContext } from "../../../context/GetDataContext";
+import { cn } from "../../../lib/utils";
 
 const RenderData = () => {
   const { Data } = useGetDataContext(); // Context Or Redux
+  const { isOpenSlider } = useOpenSliderContext();
   return (
     <>
-      <div className="mt-4 w-[105pc] truncate whitespace-pre-wrap break-words">
-        <pre className=" text-sm p-4 rounded truncate whitespace-pre-wrap break-words">
+      <div
+        className={cn(
+          "mt-4  truncate whitespace-pre-wrap break-words",
+          isOpenSlider ? "w-[92pc]" : "w-[109.5pc]"
+        )}
+      >
+        <pre className=" text-sm p-4 rounded truncate whitespace-pre-wrap break-words overflow-y-scroll h-72 border border-gray-400">
           {Data ? (
             Array.isArray(Data) ? (
               Data.map((item: any, index: number) => {
