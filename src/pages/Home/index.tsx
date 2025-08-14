@@ -1,3 +1,4 @@
+import FormSend from "../../features/Content/Components/FormSend";
 import { HeaderTabs } from "../../features/Tabs/components/HeaderTabs";
 
 const Home = () => {
@@ -5,6 +6,7 @@ const Home = () => {
     <>
       <div className="w-full">
         <HeaderTabs />
+        <FormSend />
       </div>
     </>
   );
