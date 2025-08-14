@@ -12,7 +12,10 @@ const FormSend = () => {
         onSubmit={handleSubmit(handleSendrequest)}
         className={cn("py-3 px-8 flex", isOpenSlider && "w-[92pc]")}
       >
-        <select className="border-t-[#cfcfcf] focus:outline-0 w-30 border-l-[#cfcfcf] border-b-[#cfcfcf]  border-t-2 border-l-2 border-b-2 rounded-l-sm  rounded-tl-sm rounded-bl-sm">
+        <select
+          {...register("method", { required: true })}
+          className="border-t-[#cfcfcf] focus:outline-0 w-30 border-l-[#cfcfcf] border-b-[#cfcfcf]  border-t-2 border-l-2 border-b-2 rounded-l-sm  rounded-tl-sm rounded-bl-sm"
+        >
           <option
             className="text-green-500 font-semibold"
             value="Get"
