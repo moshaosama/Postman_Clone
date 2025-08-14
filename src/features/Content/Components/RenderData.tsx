@@ -1,7 +1,7 @@
-import useSendRequest from "../Hooks/useSendRequest";
+import { useGetDataContext } from "../../../context/GetDataContext";
 
 const RenderData = () => {
-  const { Data } = useSendRequest(); // Context Or Redux
+  const { Data } = useGetDataContext(); // Context Or Redux
   return (
     <>
       <div className="mt-4 w-[105pc] truncate whitespace-pre-wrap break-words">
