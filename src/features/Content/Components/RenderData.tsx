@@ -3,7 +3,7 @@ import { useGetDataContext } from "../../../context/GetDataContext";
 import { cn } from "../../../lib/utils";
 
 const RenderData = () => {
-  const { Data } = useGetDataContext(); // Context Or Redux
+  const { Data, Status } = useGetDataContext(); // Context Or Redux
   const { isOpenSlider } = useOpenSliderContext();
   return (
     <>
@@ -31,6 +31,8 @@ const RenderData = () => {
                   ></pre>
                 );
               })
+            ) : Status === "404 Not Found" ? (
+              <pre>Post no</pre>
             ) : (
               <pre
                 dangerouslySetInnerHTML={{
