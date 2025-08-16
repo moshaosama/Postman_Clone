@@ -9,7 +9,7 @@ const RenderData = () => {
     <>
       <div
         className={cn(
-          "mt-4  truncate whitespace-pre-wrap break-words",
+          "mt-2 truncate whitespace-pre-wrap break-words",
           isOpenSlider ? "w-[92pc]" : "w-[109.5pc]"
         )}
       >
