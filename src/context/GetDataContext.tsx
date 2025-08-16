@@ -1,6 +1,12 @@
+import { AppDispatch } from "../store/Store";
 import { sendRequestService } from "../api/SendRequest/SendRequestService";
 import { createContext, ReactNode, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import {
+  fetchCreateHistory,
+  fetchGetHistory,
+} from "../features/History/Actions/HistoryActions";
 
 interface GetDataContextData {
   Data: boolean;
@@ -8,6 +14,7 @@ interface GetDataContextData {
   register: any;
   handleSubmit: any;
   handleSendrequest: (data: any) => void;
+  handleSaveHistory: (data: any) => void;
   code: any;
   setCode: any;
 }
@@ -19,6 +26,7 @@ interface OpenSliderProps {
 const GetDataContext = createContext<GetDataContextData | null>(null);
 
 const GetDataProvider = ({ children }: OpenSliderProps) => {
+  const dispatch = useDispatch<AppDispatch>();
   const [Data, setData] = useState<{
     data: any;
     statusbar: any;
@@ -33,6 +41,10 @@ const GetDataProvider = ({ children }: OpenSliderProps) => {
 
     setData(result);
   };
+  const handleSaveHistory = (data: any) => {
+    dispatch(fetchCreateHistory(data));
+    dispatch(fetchGetHistory());
+  };
 
   return (
     <GetDataContext
@@ -42,6 +54,7 @@ const GetDataProvider = ({ children }: OpenSliderProps) => {
         register,
         handleSubmit,
         handleSendrequest,
+        handleSaveHistory,
         code,
         setCode,
       }}
