@@ -1,9 +1,10 @@
 import { useOpenSliderContext } from "../../../context/OpenSliderContext";
 import { useGetDataContext } from "../../../context/GetDataContext";
 import { cn } from "../../../lib/utils";
+import NotFound from "../../../components/shared/NotFound";
 
 const RenderData = () => {
-  const { Data, Status } = useGetDataContext(); // Context Or Redux
+  const { Data, Status } = useGetDataContext();
   const { isOpenSlider } = useOpenSliderContext();
   return (
     <>
@@ -44,7 +45,7 @@ const RenderData = () => {
               ></pre>
             )
           ) : (
-            "Data is notfound"
+            <NotFound />
           )}
         </pre>
       </div>
