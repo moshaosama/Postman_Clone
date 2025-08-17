@@ -1,12 +1,19 @@
 import { AppDispatch } from "../store/Store";
 import { sendRequestService } from "../api/SendRequest/SendRequestService";
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import {
   fetchCreateHistory,
   fetchGetHistory,
 } from "../features/History/Actions/HistoryActions";
+import useGetHistoryById from "../features/History/Hooks/useGetHistoryById";
 
 interface GetDataContextData {
   Data: boolean;
@@ -27,18 +34,26 @@ const GetDataContext = createContext<GetDataContextData | null>(null);
 
 const GetDataProvider = ({ children }: OpenSliderProps) => {
   const dispatch = useDispatch<AppDispatch>();
+  const { HistoryById } = useGetHistoryById();
   const [Data, setData] = useState<{
     data: any;
     statusbar: any;
   }>();
   const [code, setCode] = useState("");
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
+
+  useEffect(() => {
+    if (HistoryById) {
+      setValue("method", HistoryById.method);
+      setValue("url", HistoryById.url);
+    }
+  }, [HistoryById, setValue]);
+
   const handleSendrequest = async (data: any) => {
     const result = await sendRequestService.getData({
       ...data,
       body: JSON.parse(code || "{}"),
     });
-
     setData(result);
   };
   const handleSaveHistory = (data: any) => {
@@ -47,7 +62,7 @@ const GetDataProvider = ({ children }: OpenSliderProps) => {
   };
 
   return (
-    <GetDataContext
+    <GetDataContext.Provider
       value={{
         Data: Data?.data,
         Status: Data?.statusbar as string,
@@ -60,7 +75,7 @@ const GetDataProvider = ({ children }: OpenSliderProps) => {
       }}
     >
       {children}
-    </GetDataContext>
+    </GetDataContext.Provider>
   );
 };
 
