@@ -1,12 +1,10 @@
-import useGetHistory from "../../../features/History/Hooks/useGetHistory";
 import { useOpenSliderContext } from "../../../context/OpenSliderContext";
 import { Search } from "lucide-react";
-import { cn } from "../../../lib/utils";
-import { MethodFactory } from "../../../lib/MethodFactory";
+import HistoryRender from "../../../features/History/Components/HistoryRender";
 
 const Collections = () => {
   const { isOpenSlider } = useOpenSliderContext();
-  const { History } = useGetHistory();
+
   return (
     <>
       {isOpenSlider && (
@@ -25,23 +23,7 @@ const Collections = () => {
           </form>
 
           <div className="my-4 flex flex-col gap-2">
-            {Array.isArray(History) &&
-              History.map((history) => (
-                <div
-                  key={history.id}
-                  className="text-[15px] flex items-center gap-1 p-1 cursor-pointer hover:bg-[#cccccc] rounded-lg"
-                >
-                  <h1
-                    className={cn(
-                      MethodFactory(history.method),
-                      "font-semibold"
-                    )}
-                  >
-                    {history.method}
-                  </h1>
-                  <p className="truncate w-52">{history.url}</p>
-                </div>
-              ))}
+            <HistoryRender />
           </div>
         </div>
       )}
