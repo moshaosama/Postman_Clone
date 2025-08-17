@@ -1,10 +1,13 @@
 import { useOpenSliderContext } from "../../../context/OpenSliderContext";
 import { useGetDataContext } from "../../../context/GetDataContext";
 import { cn } from "../../../lib/utils";
+import useGetHistoryById from "../../../features/History/Hooks/useGetHistoryById";
 
 const FormSend = () => {
   const { handleSendrequest, register, handleSubmit } = useGetDataContext();
   const { isOpenSlider } = useOpenSliderContext();
+  const { HistoryById } = useGetHistoryById();
+  console.log(HistoryById);
 
   return (
     <>
@@ -42,6 +45,7 @@ const FormSend = () => {
         <input
           type="text"
           {...register("url", { required: true })}
+          defaultValue={HistoryById?.url || ""}
           className="border-r-[#cfcfcf] focus:outline-0 border-t-[#cfcfcf] border-b-[#cfcfcf] border-b-2 border-t-2 border-r-2 w-full p-2 rounded-r-sm rounded-tr-sm rounded-br-sm"
         />
 
