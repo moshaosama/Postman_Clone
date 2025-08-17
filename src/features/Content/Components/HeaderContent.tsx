@@ -29,6 +29,7 @@ const HeaderContent = () => {
         <div
           onClick={handleSubmit(handleSaveHistory)}
           className="flex items-center gap-2 cursor-pointer p-1 rounded-sm hover:bg-[#dadada]"
+          id="saveBtn"
         >
           <Save size={20} />
           <p>Save</p>
