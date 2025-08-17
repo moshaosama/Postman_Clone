@@ -14,3 +14,10 @@ export const fetchCreateHistory = createAsyncThunk(
     return historyService.createData(data);
   }
 );
+
+export const fetchGetHistoryById = createAsyncThunk(
+  "historyById/fetchGetHistoryById",
+  (id: number) => {
+    return historyService.GetDataByid(id as number);
+  }
+);
