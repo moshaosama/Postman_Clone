@@ -11,6 +11,7 @@ const Navbar = () => {
           <div onClick={handleTriggerOpenSlider}>
             <Text
               size={30}
+              id="TestIcon"
               className="hover:bg-[#e7e7e7] p-1 rounded-sm cursor-pointer"
             />
           </div>
