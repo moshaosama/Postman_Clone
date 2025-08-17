@@ -2,8 +2,11 @@ import LinksSlider from "../../features/Slider/components/LinksSlider";
 import HeaderSlider from "../../features/Slider/components/HeaderSlider";
 import { cn } from "../../lib/utils";
 import { useOpenSliderContext } from "../../context/OpenSliderContext";
+// import useGetHistory from "../../features/History/Hooks/useGetHistory";
 export const Slider = () => {
   const { isOpenSlider } = useOpenSliderContext();
+  // const { History } = useGetHistory();
+
   return (
     <>
       <div
