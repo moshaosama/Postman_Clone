@@ -8,13 +8,9 @@ import {
   useState,
 } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import {
-  fetchCreateHistory,
-  fetchGetHistory,
-} from "../features/History/Actions/HistoryActions";
+import { AnyIfEmpty, useDispatch } from "react-redux";
+import { fetchCreateHistory } from "../features/History/Actions/HistoryActions";
 import useGetHistoryById from "../features/History/Hooks/useGetHistoryById";
-import puppeteer from "puppeteer";
 
 interface GetDataContextData {
   Data: boolean;
@@ -25,6 +21,7 @@ interface GetDataContextData {
   handleSaveHistory: (data: any) => void;
   code: any;
   setCode: any;
+  setValue: any;
 }
 
 interface OpenSliderProps {
@@ -59,7 +56,6 @@ const GetDataProvider = ({ children }: OpenSliderProps) => {
   };
   const handleSaveHistory = async (data: any) => {
     dispatch(fetchCreateHistory(data));
-    dispatch(fetchGetHistory());
   };
 
   return (
@@ -73,6 +69,7 @@ const GetDataProvider = ({ children }: OpenSliderProps) => {
         handleSaveHistory,
         code,
         setCode,
+        setValue,
       }}
     >
       {children}
