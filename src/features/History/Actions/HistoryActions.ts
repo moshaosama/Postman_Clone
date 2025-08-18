@@ -3,14 +3,14 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchGetHistory = createAsyncThunk(
   "history/fetchGetHistory",
-  () => {
-    return historyService.getData();
+  (collection_id: number) => {
+    return historyService.getData(collection_id);
   }
 );
 
 export const fetchCreateHistory = createAsyncThunk(
   "history/fetchCreateHistory",
-  (data: { method: string; url: string }) => {
+  (data: { method: string; url: string; collection_id: number }) => {
     return historyService.createData(data);
   }
 );
