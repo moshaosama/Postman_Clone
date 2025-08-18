@@ -11,7 +11,7 @@ export const SaveRequestModel = () => {
   const { Collections } = useGetCollections();
   const { handleTriggerOpenSaveRequest } = useOpenSaveRequestContext();
   const [collection_id, setCollectionId] = useState<number>(0);
-  const { handleSubmit, handleSaveHistory, register, setValue } =
+  const { handleSubmit, handleSaveHistory, register, setValue, getValues } =
     useGetDataContext();
 
   const onSave = () => {
@@ -34,8 +34,8 @@ export const SaveRequestModel = () => {
             </label>
             <input
               type="text"
-              className="border-2 border-gray-200 rounded-sm bg-gray-100 py-1"
-              defaultValue={HistoryById?.url}
+              className="border-2 border-gray-200 rounded-sm bg-gray-100 p-1"
+              value={getValues()?.url}
             />
           </form>
 
