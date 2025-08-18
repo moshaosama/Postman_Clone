@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 import { useForm } from "react-hook-form";
-import { AnyIfEmpty, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchCreateHistory } from "../features/History/Actions/HistoryActions";
 import useGetHistoryById from "../features/History/Hooks/useGetHistoryById";
 
@@ -22,6 +22,7 @@ interface GetDataContextData {
   code: any;
   setCode: any;
   setValue: any;
+  getValues: any;
 }
 
 interface OpenSliderProps {
@@ -38,7 +39,7 @@ const GetDataProvider = ({ children }: OpenSliderProps) => {
     statusbar: any;
   }>();
   const [code, setCode] = useState("");
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, getValues } = useForm();
 
   useEffect(() => {
     if (HistoryById) {
@@ -70,6 +71,7 @@ const GetDataProvider = ({ children }: OpenSliderProps) => {
         code,
         setCode,
         setValue,
+        getValues,
       }}
     >
       {children}
