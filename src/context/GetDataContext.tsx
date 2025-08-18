@@ -14,6 +14,7 @@ import {
   fetchGetHistory,
 } from "../features/History/Actions/HistoryActions";
 import useGetHistoryById from "../features/History/Hooks/useGetHistoryById";
+import puppeteer from "puppeteer";
 
 interface GetDataContextData {
   Data: boolean;
@@ -56,7 +57,7 @@ const GetDataProvider = ({ children }: OpenSliderProps) => {
     });
     setData(result);
   };
-  const handleSaveHistory = (data: any) => {
+  const handleSaveHistory = async (data: any) => {
     dispatch(fetchCreateHistory(data));
     dispatch(fetchGetHistory());
   };
