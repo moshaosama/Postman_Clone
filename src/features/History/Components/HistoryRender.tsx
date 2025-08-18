@@ -12,7 +12,7 @@ const HistoryRender = () => {
         History.map((history) => (
           <div
             key={history.id}
-            className="text-[15px] flex items-center gap-1 p-1 w-60 cursor-pointer hover:bg-[#cccccc] rounded-lg"
+            className="text-[14px] mx-10 flex items-center gap-1 p-1 w-48 cursor-pointer hover:bg-[#cccccc] rounded-lg"
             onClick={() => handleGetHistoryById(history.id as number)}
           >
             <h1 className={cn(MethodFactory(history.method), "font-semibold")}>
