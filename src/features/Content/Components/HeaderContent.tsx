@@ -1,11 +1,15 @@
-import { useGetDataContext } from "../../../context/GetDataContext";
+// import { useGetDataContext } from "../../../context/GetDataContext";
 import { useOpenSliderContext } from "../../../context/OpenSliderContext";
 import { cn } from "../../../lib/utils";
 import { Save } from "lucide-react";
+import { SaveRequestModel } from "./SaveRequestModel";
+import { useOpenSaveRequestContext } from "../../../context/SaveRequestContext";
 
 const HeaderContent = () => {
   const { isOpenSlider } = useOpenSliderContext();
-  const { handleSaveHistory, handleSubmit } = useGetDataContext();
+  // const { handleSaveHistory, handleSubmit } = useGetDataContext();
+  const { isOpenSaveRequest, handleTriggerOpenSaveRequest } =
+    useOpenSaveRequestContext();
   return (
     <>
       <div
@@ -27,7 +31,7 @@ const HeaderContent = () => {
         </div>
 
         <div
-          onClick={handleSubmit(handleSaveHistory)}
+          onClick={handleTriggerOpenSaveRequest}
           className="flex items-center gap-2 cursor-pointer p-1 rounded-sm hover:bg-[#dadada]"
           id="saveBtn"
         >
@@ -35,6 +39,8 @@ const HeaderContent = () => {
           <p>Save</p>
         </div>
       </div>
+
+      {isOpenSaveRequest && <SaveRequestModel />}
     </>
   );
 };
