@@ -10,9 +10,11 @@ class HistoryService extends ParentService {
       return thunkApi.rejectWithValue(err);
     }
   }
-  async getData(_?: any, thunkApi?: any) {
+  async getData(collection_id: number, thunkApi?: any) {
     try {
-      const response = await axios.get(`${this.url}history`);
+      const response = await axios.get(
+        `${this.url}history/collection/${collection_id}`
+      );
       return response.data;
     } catch (err) {
       return thunkApi.rejectWithValue(err);
