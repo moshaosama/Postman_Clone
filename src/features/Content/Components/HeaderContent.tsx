@@ -1,4 +1,3 @@
-// import { useGetDataContext } from "../../../context/GetDataContext";
 import { useOpenSliderContext } from "../../../context/OpenSliderContext";
 import { cn } from "../../../lib/utils";
 import { Save } from "lucide-react";
@@ -7,7 +6,6 @@ import { useOpenSaveRequestContext } from "../../../context/SaveRequestContext";
 
 const HeaderContent = () => {
   const { isOpenSlider } = useOpenSliderContext();
-  // const { handleSaveHistory, handleSubmit } = useGetDataContext();
   const { isOpenSaveRequest, handleTriggerOpenSaveRequest } =
     useOpenSaveRequestContext();
   return (
