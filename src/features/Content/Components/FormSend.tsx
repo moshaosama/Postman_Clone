@@ -7,7 +7,6 @@ const FormSend = () => {
   const { handleSendrequest, register, handleSubmit } = useGetDataContext();
   const { isOpenSlider } = useOpenSliderContext();
   const { HistoryById } = useGetHistoryById();
-  console.log(HistoryById);
 
   return (
     <>
