@@ -6,13 +6,16 @@ import { Provider } from "react-redux";
 import OpenSliderProvider from "./context/OpenSliderContext.tsx";
 import GetDataProvider from "./context/GetDataContext.tsx";
 import { store } from "./store/Store.ts";
+import OpenSaveRequestProvider from "./context/SaveRequestContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <OpenSliderProvider>
       <Provider store={store}>
         <GetDataProvider>
-          <App />
+          <OpenSaveRequestProvider>
+            <App />
+          </OpenSaveRequestProvider>
         </GetDataProvider>
       </Provider>
     </OpenSliderProvider>
