@@ -9,9 +9,9 @@ const useCreateCollections = () => {
   const dispatch = useDispatch<AppDispatch>();
   //   const { data } = useSelector((state: RootState) => state.collections);
 
-  const handleCreateCollections = () => {
-    dispatch(fetchCreateCollection());
-    dispatch(fetchGetCollections());
+  const handleCreateCollections = async () => {
+    await dispatch(fetchCreateCollection());
+    await dispatch(fetchGetCollections());
   };
 
   return { handleCreateCollections };
