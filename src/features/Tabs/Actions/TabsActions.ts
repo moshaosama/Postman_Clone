@@ -17,3 +17,8 @@ export const fetchGetTabs = createAsyncThunk("Tabs/fetchGetTabs", async () => {
 export const fetchDeleteTab = createAsyncThunk("Tabs/fetchDeleteTab", async (id: number) => {
     return await tabsService.DeleteData((id as number))
 })
+
+
+export const fetchGetTabByid = createAsyncThunk("TabByid/fetchGetTabByid", async (id: number) => {
+    return await tabsService.getTabById(id)
+})
