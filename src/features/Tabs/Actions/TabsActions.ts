@@ -1,5 +1,5 @@
 import { tabsService } from "../../../api/Tabs/TabService";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk} from "@reduxjs/toolkit";
 
 export const fetchCreateTabs = createAsyncThunk(
   "Tabs/fetchCreateTabs",
@@ -11,3 +11,9 @@ export const fetchCreateTabs = createAsyncThunk(
 export const fetchGetTabs = createAsyncThunk("Tabs/fetchGetTabs", async () => {
   return await tabsService.getData();
 });
+
+
+
+export const fetchDeleteTab = createAsyncThunk("Tabs/fetchDeleteTab", async (id: number) => {
+    return await tabsService.DeleteData((id as number))
+})
