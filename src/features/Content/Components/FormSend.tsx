@@ -9,8 +9,7 @@ const FormSend = () => {
   const { handleSendrequest, register, handleSubmit } = useGetDataContext();
   const { isOpenSlider } = useOpenSliderContext();
   const { HistoryById } = useGetHistoryById();
-  // const {tabByid} = useGetTabByid();
-  const {tabValueState, setTabValueState} = useGetTabValueContext();
+  const {tabValueState, setTabValueState, handleUpdateTab} = useGetTabValueContext();
   return (
     <>
       <form
@@ -52,6 +51,7 @@ const FormSend = () => {
           id="searchInput"
           onChange={(el:ChangeEvent<HTMLInputElement>) => setTabValueState(el.target.value as string)}
           value={tabValueState || HistoryById?.url || ""}
+          onMouseLeave={handleUpdateTab}
           className="border-r-[#cfcfcf] focus:outline-0 border-t-[#cfcfcf] border-b-[#cfcfcf] border-b-2 border-t-2 border-r-2 w-full p-2 rounded-r-sm rounded-tr-sm rounded-br-sm"
         />
 
