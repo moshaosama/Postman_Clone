@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchCreateTabs, fetchGetTabs } from "../Actions/TabsActions";
+import {createSlice, Slice} from "@reduxjs/toolkit";
+import {fetchCreateTabs, fetchDeleteTab, fetchGetTabs} from "../Actions/TabsActions";
 
 interface initialStateData {
   data: {
@@ -17,7 +17,7 @@ const initialState: initialStateData = {
   error: "",
 };
 
-const tabsSlices = createSlice({
+const tabsSlices: Slice = createSlice({
   initialState,
   name: "Tabs",
   reducers: {},
@@ -49,6 +49,20 @@ const tabsSlices = createSlice({
       state.loading = false;
       state.error = action.payload as string;
     });
+
+      builder.addCase(fetchDeleteTab.pending, (state) => {
+          state.loading = true;
+      });
+
+      builder.addCase(fetchDeleteTab.fulfilled, (state, action) => {
+          state.data = action.payload;
+          state.loading = false;
+      });
+
+      builder.addCase(fetchDeleteTab.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload as string;
+      });
   },
 });
 
