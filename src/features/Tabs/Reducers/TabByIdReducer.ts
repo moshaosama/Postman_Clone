@@ -35,6 +35,8 @@ const tabsByIdSlices: Slice = createSlice({
             state.loading = false;
             state.error = action.payload as string;
         });
+
+
     },
 });
 
