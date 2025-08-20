@@ -7,6 +7,7 @@ import OpenSliderProvider from "./context/OpenSliderContext.tsx";
 import GetDataProvider from "./context/GetDataContext.tsx";
 import { store } from "./store/Store.ts";
 import OpenSaveRequestProvider from "./context/SaveRequestContext.tsx";
+import GetTabValueProvider from "./context/getTabValueContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -14,7 +15,9 @@ createRoot(document.getElementById("root")!).render(
       <Provider store={store}>
         <GetDataProvider>
           <OpenSaveRequestProvider>
-            <App />
+            <GetTabValueProvider>
+                <App/>
+            </GetTabValueProvider>
           </OpenSaveRequestProvider>
         </GetDataProvider>
       </Provider>
