@@ -1,9 +1,13 @@
 import {createContext, ReactNode, useContext, useEffect, useState} from "react";
 import {useGetTabByid} from "../features/Tabs/Hooks/useGetTabByid.ts";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store/Store.ts";
+import {fetchGetTabs, fetchUpdateTabByid} from "../features/Tabs/Actions/TabsActions.ts";
 
 interface getTabValueData {
     tabValueState: string;
     setTabValueState: unknown;
+    handleUpdateTab: () => void
 }
 
 interface getTabValueProps {
@@ -13,7 +17,7 @@ interface getTabValueProps {
 const getTabValueContext = createContext<getTabValueData | null>(null);
 
 const GetTabValueProvider = ({ children }: getTabValueProps) => {
-
+    const dispatch = useDispatch<AppDispatch>();
     const {tabByid} = useGetTabByid();
     const [tabValueState, setTabValueState] = useState("")
 
@@ -23,8 +27,24 @@ const GetTabValueProvider = ({ children }: getTabValueProps) => {
         }
     }, [tabByid]);
 
+    const handleUpdateTab = async () => {
+        if (!tabByid?.[0]?.id) return;
+
+        await dispatch(
+            fetchUpdateTabByid({
+                id: tabByid[0].id,
+                updateTabDTO: {
+                    method: "GET",
+                    url: tabValueState,
+                },
+            })
+        );
+        await dispatch(fetchGetTabs())
+    };
+
+
     return (
-        <getTabValueContext.Provider value={{ tabValueState, setTabValueState }}>
+        <getTabValueContext.Provider value={{ tabValueState, setTabValueState, handleUpdateTab }}>
             {children}
         </getTabValueContext.Provider>
     );
