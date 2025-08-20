@@ -3,12 +3,13 @@ import historyReducer from "../features/History/Reducers/HistoryReducer";
 import historyByIdReducer from "../features/History/Reducers/HistoryByIdReducer";
 import collectionReducer from "../features/Collections/Reducers/collectionReducer";
 import tabsReducer from "../features/Tabs/Reducers/TabReducer";
+import tabsByIdReducer from "../features/Tabs/Reducers/TabByIdReducer";
 export const store = configureStore({
   reducer: {
     history: historyReducer,
     historyById: historyByIdReducer,
     collections: collectionReducer,
-    tabs: tabsReducer,
+    tabs: tabsReducer, tabsByid:tabsByIdReducer
   },
 });
 
