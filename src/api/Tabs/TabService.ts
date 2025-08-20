@@ -18,17 +18,24 @@ export class TabService extends ParentService {
       return thunkApi.rejectWithValue(err);
     }
   }
-
   async DeleteData(id:number, thunkApi?: any) {
       try {
-          const response: AxiosResponse =  await axios.delete(`http://localhost:3000/api/tabs/${id}`);
+          const response: AxiosResponse =  await axios.delete(`${this.url}tabs/${id}`);
           return  response.data;
       }
       catch (err) {
           return thunkApi.rejectWithValue(err);
       }
   }
-  
+  async getTabById (id: number, thunkApi?: any) {
+        try {
+            const response= await axios.get(`${this.url}tabs/${id}`)
+            return  response.data;
+        }
+        catch (err) {
+            return thunkApi.rejectWithValue(err);
+        }
+  }
 }
 
 export const tabsService = new TabService();
