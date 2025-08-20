@@ -36,6 +36,15 @@ export class TabService extends ParentService {
             return thunkApi.rejectWithValue(err);
         }
   }
+  async updateTabById(data: {id: number, updateTabDTO: {url: string, method: string}}, thunkApi?:any) {
+      try {
+          const response= await axios.put(`${this.url}tabs/${data.id}`, data.updateTabDTO)
+          return  response.data;
+      }
+      catch (err) {
+          return thunkApi.rejectWithValue(err);
+      }
+  }
 }
 
 export const tabsService = new TabService();
