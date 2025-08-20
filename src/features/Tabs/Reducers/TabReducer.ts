@@ -1,5 +1,5 @@
 import {createSlice, Slice} from "@reduxjs/toolkit";
-import {fetchCreateTabs, fetchDeleteTab, fetchGetTabs} from "../Actions/TabsActions";
+import {fetchCreateTabs, fetchDeleteTab, fetchGetTabs, fetchUpdateTabByid} from "../Actions/TabsActions";
 
 interface initialStateData {
   data: {
@@ -60,6 +60,20 @@ const tabsSlices: Slice = createSlice({
       });
 
       builder.addCase(fetchDeleteTab.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload as string;
+      });
+
+      builder.addCase(fetchUpdateTabByid.pending, (state) => {
+          state.loading = true;
+      });
+
+      builder.addCase(fetchUpdateTabByid.fulfilled, (state, action) => {
+          state.data = action.payload;
+          state.loading = false;
+      });
+
+      builder.addCase(fetchUpdateTabByid.rejected, (state, action) => {
           state.loading = false;
           state.error = action.payload as string;
       });
